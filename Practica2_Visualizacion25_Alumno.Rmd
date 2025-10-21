@@ -390,8 +390,12 @@ Añadir barras de error a un gráfico de línea.
 * Almacena en formato **pdf** el gráfico resultante en un fichero denominado ``Ejercicio5.pdf``.
 
 ```{r Solucion ejercicio 5}
+rm(list=ls())
+load("data/Experimento.Rdata")
 
-
+grafico5.1<-ggplot(data=Experimento)+
+  geom_point(mapping = aes(x=Dosis,y=Altura,shape))
+grafico4.1
 ```
 
 ### **Ejercicio 6 **
@@ -416,6 +420,7 @@ grafico6.1
 grafico6.2<-grafico6.1+labs(title = "Caudales de los rios islandeses Vatnsdalsa(azul) y Jokulsa Eystri(rojo)",x="Tiempo (años)",y="Caudal")
 grafico6.2
 
+ggsave('figs/Ejercicio6.pdf')
 ```
 
 
