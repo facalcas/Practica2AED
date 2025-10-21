@@ -166,7 +166,7 @@ grafico1
 
 grafico2<-ggplot(data = ds)+
   geom_point(mapping = aes(x=MinTemp,y=MaxTemp,colour=RainTomorrow))
-
+#Si quiero cambiar los colores manualmente sería grafico2 + scale_color_manual(values=c("blue","green"))
 grafico2
 
 grafico3<-ggplot(data = ds)+
@@ -187,6 +187,26 @@ ggsave('figs/Ejercicio1.pdf')
 * Almacena en formato **pdf** el gráfico resultante en un fichero denominado ``Ejercicio2.pdf``.
 
 ```{r Solucion ejercicio 2}
+rm(list=ls())
+load("data/weatherAUS.RData")
+
+grafico1.2<-ggplot(data = ds)+
+  geom_point(mapping = aes(x=Temp9am,y=Pressure9am))
+grafico1.2
+
+grafico2.2<-ggplot(data = ds)+
+  geom_point(mapping = aes(x=Temp9am,y=Pressure9am,shape=RainToday))
+grafico2.2
+
+grafico3.2<-ggplot(data = ds)+
+  geom_point(mapping = aes(x=Temp9am,y=Pressure9am,colour=RainToday))
+grafico3.2
+
+#Visualmente es mejor representar las diferencias de RainToday con colores. Del otro modo no se aprecian tantas diferencias.
+
+grafico4.2<-grafico3.2+labs(title ="Probabilidad lluvia según condiciones metereológicas",x="Temperatura 9AM °C",y="Presión atmosférica 9AM(mb)")
+
+grafico4.2
 
 ggsave('figs/Ejercicio2.pdf')
 ```
@@ -203,8 +223,14 @@ ggsave('figs/Ejercicio2.pdf')
 * Almacena en formato **pdf** el gráfico resultante en un fichero denominado ``Ejercicio3.pdf``.
 
 ```{r Solucion ejercicio 3}
+rm(list=ls())
+load("data/iris_tidy.Rdata")
 
-ggsave('figs/Ejercicio3.pdf') # se almacena el último gráfico generado
+
+
+
+
+#ggsave('figs/Ejercicio3.pdf') # se almacena el último gráfico generado
 ```
 
 ## Gráficos de línea con **ggplot2**
