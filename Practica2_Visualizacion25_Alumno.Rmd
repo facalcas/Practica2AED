@@ -226,11 +226,26 @@ ggsave('figs/Ejercicio2.pdf')
 rm(list=ls())
 load("data/iris_tidy.Rdata")
 
+str(iris.tidy)
+iris.grafico1<-ggplot(data=iris.tidy)+
+  geom_point(mapping = aes(x=Species,y=Value))
+iris.grafico1
 
+iris.grafico2<-ggplot(data=iris.tidy)+
+  geom_point(mapping = aes(x=Species,y=Value,colour=Part))
+iris.grafico2
 
+iris.grafico3<-ggplot(data=iris.tidy,aes(x=Species,y=Value,colour=Part))+
+                        geom_point()+facet_grid(Measure~.)
+iris.grafico3
 
+iris.grafico4<-ggplot(data=iris.tidy,aes(x=Species,y=Value,colour=Part))+
+                        geom_jitter()+facet_grid(Measure~.)
+iris.grafico4
 
-#ggsave('figs/Ejercicio3.pdf') # se almacena el último gráfico generado
+#Los datos del gráfico ya no se "sobreponen" uno sobre otro
+
+ggsave('figs/Ejercicio3.pdf') # se almacena el último gráfico generado
 ```
 
 ## Gráficos de línea con **ggplot2**
