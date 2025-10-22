@@ -569,7 +569,9 @@ ggplot(data=dataset_hist1, aes(x=AGE)) +
 * Almacena en formato **pdf** el gráfico resultante en un fichero denominado ``Ejercicio8.pdf``.
 
 ```{r Solucion ejercicio 8}
-# 
+rm(list=ls())
+library(readr)
+dataCamp<-read.table("data/chol.txt",header = T,sep = " ")
 
 ```
 
